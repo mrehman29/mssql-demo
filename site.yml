@@ -1,0 +1,7 @@
+---
+- name: Install MsSQL on RHEL
+  hosts: "{{ target }}"
+  become: yes
+
+  roles:
+    - mssql-server

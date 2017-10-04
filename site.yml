@@ -4,4 +4,4 @@
   become: yes
 
   roles:
-    - mssql-server
+    - { role: kyleabenson.mssql }

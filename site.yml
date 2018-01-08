@@ -12,6 +12,10 @@
     - { role: kyleabenson.mssql }
 
   tasks:
+    - name: Pause for 30 seconds for DB connection to come up
+      pause:
+        seconds: 30
+
     - name: Create a new database
       mssql_db:
         name: "{{ db_name }}"

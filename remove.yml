@@ -1,5 +1,5 @@
 ---
-- hosts: "{{ target }}"
+- hosts: all
   name: Removes mssql-server
   become: yes
 
@@ -7,4 +7,4 @@
   - name: Run remove tasks from mssql-server role
     include_role:
         name: kyleabenson.mssql
-        tasks_from: remove
+        tasks_from: uninstall

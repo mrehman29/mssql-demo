@@ -1,7 +1,21 @@
 ---
 - name: Install MsSQL on RHEL
-  hosts: "{{ target }}"
+  hosts: all
   become: yes
+  vars:
+    db_name: testDB
+    db_host: localhost
+    db_user: SA
+    db_password: P@ssWORD!
 
   roles:
     - { role: kyleabenson.mssql }
+
+  tasks:
+    - name: Create a new database
+      mssql_db:
+        name: "{{ db_name }}"
+        state: present
+        login_host: "{{ db_host }}"
+        login_user: "{{ db_user }}"
+        login_password: "{{ db_password }}"
